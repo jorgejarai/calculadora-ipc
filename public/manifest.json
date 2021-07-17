@@ -1,0 +1,22 @@
+{
+  "name": "Calculadora IPC",
+  "short_name": "Calculadora IPC",
+  "icons": [
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "images/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#EFF6FF",
+  "background_color": "#EFF6FF",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
