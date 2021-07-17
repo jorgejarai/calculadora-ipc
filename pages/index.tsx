@@ -1,4 +1,5 @@
 import { google } from 'googleapis';
+import { admin } from 'googleapis/build/src/apis/admin';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
@@ -101,11 +102,21 @@ const Home = ({ ipcData }: IProps) => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const auth = await google.auth.getClient({
+  const auth = new google.auth.GoogleAuth({
+    projectId: process.env.PROJECT_ID,
+    credentials: {
+      private_key: process.env.PRIVATE_KEY,
+      client_email: process.env.CLIENT_EMAIL,
+      client_id: process.env.CLIENT_ID,
+      type: process.env.CREDENTIAL_TYPE,
+    },
     scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
   });
 
-  const sheets = google.sheets({ version: 'v4', auth });
+  const sheets = google.sheets({
+    version: 'v4',
+    auth,
+  });
 
   const range = `Sheet1!A:C`;
 
