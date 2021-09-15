@@ -21,7 +21,7 @@ export const Listbox = ({
 }: IProps) => {
   const label = options.find((option) => option.value === selected)?.label;
   return (
-    <div className={width === 'large' ? 'w-40' : 'w-20'}>
+    <div className={width === 'large' ? 'w-40' : 'w-24'}>
       <HeadlessListbox value={selected} onChange={setSelected}>
         <div className='relative mt-1'>
           <HeadlessListbox.Button className='relative w-full bg-white py-2 pl-3 text-left rounded-lg shadow-md cursor-default text-lg'>
