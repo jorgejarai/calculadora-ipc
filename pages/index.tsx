@@ -1,5 +1,4 @@
 import { google } from 'googleapis';
-import { admin } from 'googleapis/build/src/apis/admin';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
