@@ -133,10 +133,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     auth,
   });
 
-  const range = `Sheet1!A:C`;
+  const range = `${process.env.SHEET_NAME}!A:C`;
 
   const response = await sheets.spreadsheets.values.get({
-    spreadsheetId: process.env.SHEET_ID,
+    spreadsheetId: process.env.SPREADSHEET_ID,
     range,
   });
 
