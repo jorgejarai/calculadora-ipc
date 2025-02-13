@@ -22,6 +22,11 @@ const getYears = (data: Variation[]): IListValue[] => {
     yearsSet.add(entry.year);
   });
 
+  const lastDataPoint = data.at(-1);
+  if (lastDataPoint.month === 12) {
+    yearsSet.add(lastDataPoint.year + 1);
+  }
+
   return Array.from(yearsSet)
     .reverse()
     .map((year) => ({
@@ -31,8 +36,20 @@ const getYears = (data: Variation[]): IListValue[] => {
 };
 
 const getValidMonths = (data: Variation[], year: number): IListValue[] => {
-  if (!data.some((entry) => entry.year === year)) {
-    return [];
+  const lastDataPoint = data.at(-1);
+  if (
+    !data.some((entry) => entry.year === year) &&
+    year !== lastDataPoint.year
+  ) {
+    const monthDate = new Date(2021, 0);
+    const monthName = monthDate.toLocaleString('es-CL', { month: 'long' });
+
+    return [
+      {
+        value: 1,
+        label: `${monthName}`,
+      },
+    ];
   }
 
   const ret = new Set<number>();

@@ -18,7 +18,13 @@ const Home = ({ ipcData }: IProps) => {
   const [amount, setAmount] = useState<number | null | undefined>();
 
   const { month: lastMonth, year: lastYear } = ipcData[ipcData.length - 1];
-  const lastEntry: MonthYear = { month: lastMonth + 1, year: lastYear };
+
+  let lastEntry: MonthYear;
+  if (lastMonth === 12) {
+    lastEntry = { month: 1, year: lastYear + 1 };
+  } else {
+    lastEntry = { month: lastMonth + 1, year: lastYear };
+  }
 
   const [startDate, setStartDate] = useState<MonthYear>(lastEntry);
   const [endDate, setEndDate] = useState<MonthYear>(lastEntry);
