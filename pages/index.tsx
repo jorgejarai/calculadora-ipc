@@ -135,7 +135,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: { ipcData },
-    revalidate: 60 * 60 * 24, // 1 día
+    revalidate: 60 * 60 * 6, // 6 horas
   };
 };
 
