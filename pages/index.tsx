@@ -2,6 +2,7 @@ import { google } from 'googleapis';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
+import { FaGithub } from 'react-icons/fa';
 
 import { AdjustedAmount } from 'src/components/AdjustedAmount';
 import { Disclaimer } from 'src/components/Disclaimer';
@@ -102,6 +103,15 @@ const Home = ({ ipcData }: IProps) => {
       )}
 
       <Disclaimer />
+
+      <div className='my-5'>
+        <a
+          href='https://github.com/jorgejarai/calculadora-ipc'
+          className='text-4xl'
+        >
+          <FaGithub />
+        </a>
+      </div>
     </div>
   );
 };
