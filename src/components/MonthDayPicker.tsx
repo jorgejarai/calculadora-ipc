@@ -31,13 +31,13 @@ const getYears = (data: Variation[]): IListValue[] => {
 };
 
 const getValidMonths = (data: Variation[], year: number): IListValue[] => {
-  if (!data.some((entry) => entry.year == year)) {
+  if (!data.some((entry) => entry.year === year)) {
     return [];
   }
 
   const ret = new Set<number>();
   data.forEach((entry) => {
-    if (entry.year != year) return;
+    if (entry.year !== year) return;
 
     ret.add(entry.month);
   });
@@ -45,7 +45,7 @@ const getValidMonths = (data: Variation[], year: number): IListValue[] => {
   // Cuando el año que estamos revisando es el actual, no vamos a tener las
   // entradas para los 12 meses (p. ej. si estamos en junio, la última entrada
   // será la de mayo), por lo que hay que añadir el mes actual a la lista
-  if (ret.has(1) && ret.size != 12) {
+  if (ret.has(1) && ret.size !== 12) {
     const lastMonth = Math.max(...(Array.from(ret.values()) as number[]));
 
     ret.add(lastMonth + 1);

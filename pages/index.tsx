@@ -90,7 +90,7 @@ const Home = ({ ipcData }: IProps) => {
       </div>
 
       {startDate.year > endDate.year ||
-      (startDate.year == endDate.year && startDate.month > endDate.month) ? (
+      (startDate.year === endDate.year && startDate.month > endDate.month) ? (
         <InvalidInterval />
       ) : (
         <AdjustedAmount amount={calculatedAmount} variation={variation} />

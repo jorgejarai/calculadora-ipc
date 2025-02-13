@@ -15,7 +15,7 @@ export const AdjustedAmount = ({ amount, variation }: IProps) => (
           })}
     </div>
     <div className='text-lg'>
-      {variation == 1
+      {variation === 1
         ? `Sin variación`
         : `Variación: ${(variation - 1).toLocaleString('es-CL', {
             style: 'percent',

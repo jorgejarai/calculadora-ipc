@@ -14,7 +14,7 @@ export const calculateVariation = (
   // Retornamos undefined si el intervalo es inválido
   if (
     from.year > until.year ||
-    (from.year == until.year && from.month > until.month)
+    (from.year === until.year && from.month > until.month)
   ) {
     return undefined;
   }
@@ -30,13 +30,13 @@ export const calculateVariation = (
     }
 
     // Si estamos en el año de inicio, saltamos hasta llega al mes de inicio
-    if (cur.year == from.year && cur.month < from.month) {
+    if (cur.year === from.year && cur.month < from.month) {
       return acc;
     }
 
     // Si estamos en el año de término, saltamos los meses posteriores al
     // mes de término
-    if (cur.year == until.year && cur.month > until.month - 1) {
+    if (cur.year === until.year && cur.month > until.month - 1) {
       return acc;
     }
 
